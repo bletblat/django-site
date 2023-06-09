@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?_v={{date}}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <h1>Одежда</h1>
+{% endblock %}

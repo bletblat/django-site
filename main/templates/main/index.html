@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load common_tags %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?_v={{date}}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <h1>Главная</h1>
+    <section class="tabbs">
+        {% show_tabb %}
+    </section>   
+{% endblock %}
+
+<!-- {% block javascripts %}
+    
+{% endblock %} -->

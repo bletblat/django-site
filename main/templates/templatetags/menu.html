@@ -1,0 +1,37 @@
+<ul>
+    {% for menu_item in menu_items %}
+        {% if menu_item.get_children %}
+            <li><a href="{{menu_item.url}}">{{ menu_item }}</a>
+                <ul>
+                    {% for m_item in menu_item.get_children %}
+                    {% if m_item.get_children %}
+                        <li><a href="{{m_item.url}}">{{ m_item }}</a>
+                            <ul>
+                                {% for m2_item in m_item.get_children %}
+                                {% if m2_item.get_children %}
+                                    <li><a href="{{m2_item.url}}">{{ m2_item }}</a>
+                                        <ul>
+                                            {% for m3_item in m2_item.get_children %}
+                                                <li><a href="{{m3_item.url}}">{{ m3_item }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% else %}
+                                    <li><a href="{{m2_item.url}}">{{ m2_item }}</a></li>
+                                {% endif %}   
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="{{m_item.url}}">{{ m_item }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+        {% else %}
+            <li>
+                <a href="{{menu_item.url}}">{{ menu_item }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
